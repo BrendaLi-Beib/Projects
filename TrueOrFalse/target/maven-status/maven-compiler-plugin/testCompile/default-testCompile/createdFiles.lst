@@ -1,0 +1,5 @@
+org\game\DatabaseConnTest.class
+org\game\PlayerTest.class
+org\game\QuestionTest.class
+org\game\GameTest.class
+org\game\QuestionBankTest.class
