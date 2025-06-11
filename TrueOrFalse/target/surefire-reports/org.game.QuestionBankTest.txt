@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: org.game.QuestionBankTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! -- in org.game.QuestionBankTest
+org.game.QuestionBankTest.testGetRandmQuestion -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.game.DatabaseConn
+	at org.game.QuestionBank.<init>(QuestionBank.java:9)
+	at org.game.QuestionBankTest.testGetRandmQuestion(QuestionBankTest.java:11)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.RuntimeException: org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. [in thread "main"]
+	at org.game.DatabaseConn.<clinit>(DatabaseConn.java:17)
+	at org.game.DatabaseConnTest.testGetData(DatabaseConnTest.java:11)
+	... 3 more
+
