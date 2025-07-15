@@ -1,0 +1,11 @@
+:root {
+    --nav: #8dafee;
+    --dark-nav: #74c5c1;
+    --blue: rgba(227, 11, 67, 0.85);
+    --green-light: #83c7da;
+    --yellow: #e5cc68;
+    --yellow-hover: rgba(147, 216, 46, 0.85);
+    --main-background: #e8ebf1;
+    --nav-item-active: #ca8de3;
+    --nav-item-hover: #5c7eb5;
+}
