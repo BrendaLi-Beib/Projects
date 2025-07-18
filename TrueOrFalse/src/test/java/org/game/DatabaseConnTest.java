@@ -3,6 +3,8 @@ package org.game;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import game.DatabaseConn;
+import game.Question;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
@@ -36,7 +38,7 @@ public class DatabaseConnTest {
             List<Question> questions = DatabaseConn.getData();
 
             assertEquals(2, questions.size());
-            assertEquals("Is Java fun?", questions.get(0).getText());
+            assertEquals("Is Java fun?", questions.get(0).getQuestion());
             assertTrue(questions.get(0).isCorrectAnswer(true));
         }
     }

@@ -1,6 +1,7 @@
 package org.game;
 
 
+import game.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,15 +14,15 @@ import static org.mockito.Mockito.*;
 public class GameTest {
     Player player;
     QuestionBank questionBank ;
-    ConsoleInputProvider consoleInputProvider ;
-    Game game = new Game(player, consoleInputProvider, questionBank);
+    PlayerAnswer playerAnswer;
+    Game game = new Game(player, playerAnswer, questionBank);
 
     @BeforeEach
     void setUp() {
         player = mock(Player.class);
         questionBank = Mockito.mock(QuestionBank.class);
-        consoleInputProvider = Mockito.mock(ConsoleInputProvider.class);
-        game = new Game(player, consoleInputProvider, questionBank);
+        playerAnswer = Mockito.mock(PlayerAnswer.class);
+        game = new Game(player, playerAnswer, questionBank);
 
     }
     @Test
@@ -29,23 +30,14 @@ public class GameTest {
         when(player.getScore()).thenReturn(-1);
         assertTrue(game.checkGameStatus());
     }
-    @Test
-    void testGetPlayerAnswer_true() {
-        when(consoleInputProvider.getBooleanInput()).thenReturn(true);
-        assertTrue(game.getPlayerAnswer());
-    }
-    @Test
-    void testGetPlayerAnswer_false() {
-        when(consoleInputProvider.getBooleanInput()).thenReturn(false);
-        assertFalse(game.getPlayerAnswer());
-    }
+
     @Test
     void testAskQuestion_Correct(){
         Question question = mock(Question.class);
-        when(question.getText()).thenReturn("Question true or false?");
+        when(question.getQuestion()).thenReturn("Question true or false?");
         when(questionBank.getRandmQuestion()).thenReturn(question);
         when(question.isCorrectAnswer(true)).thenReturn(true);
-        when(consoleInputProvider.getBooleanInput()).thenReturn(true);
+        when(playerAnswer.getBooleanInput()).thenReturn(true);
 
         game.askQuestion();
 
@@ -57,7 +49,7 @@ public class GameTest {
         Question question = mock(Question.class);
         when(questionBank.getRandmQuestion()).thenReturn(question);
         when(question.isCorrectAnswer(false)).thenReturn(false);
-        when(consoleInputProvider.getBooleanInput()).thenReturn(false);
+        when(playerAnswer.getBooleanInput()).thenReturn(false);
 
         game.askQuestion();
 
